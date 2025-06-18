@@ -9,10 +9,6 @@ A robust and modular solution for managing Dialogflow CX agent configurations, i
 - **Declarative Configuration:** Define Dialogflow CX entities and intents in a human-readable YAML file (`agent_config_params.yaml`).
 - **Gemini AI-Powered Training Phrase Enrichment:** Optionally enhance your intent's training phrases by leveraging the Gemini API to generate new, diverse, and natural language examples.
 - **Dynamic Entity Recognition:** Automatically format generated training phrases to include existing Dialogflow CX entities.
-- **Modular Design:** Separate concerns into dedicated Python modules for clarity, maintainability, and scalability (`gemini_enricher.py`, `dialogflow_agent_manager.py`).
-- **Centralized Configuration:** All project settings, including API keys, file paths, and feature toggles, are managed via a single `config.yaml` file.
-- **Idempotent Operations:** Handles cases where entities or intents already exist on the Dialogflow CX agent gracefully.
-
 ---
 
 ## 📁 Project Structure
@@ -144,11 +140,6 @@ Monitor the console output for progress messages and any potential errors.
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! If you have suggestions for improvements or bug fixes, please open an issue or submit a pull request.
-
----
 
 ## 📄 License
 
