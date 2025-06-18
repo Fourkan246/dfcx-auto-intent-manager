@@ -52,7 +52,6 @@ A robust and modular solution for managing Dialogflow CX agent configurations, i
 4. **Google Cloud Service Account Key:**
    - Ensure you have a Google Cloud service account key file with the necessary Dialogflow CX permissions.
    - This file's path will be used in `config.yaml`.
-   - Permissions typically include: **Dialogflow CX API Editor** or equivalent.
 
 ---
 
