@@ -1,0 +1,15 @@
+# Dialogflow CX Agent Configuration
+dialogflow:
+  creds_path: "/path/to/your/gcp/service-account-key.json" # REQUIRED: Path to your GCP service account key file
+  agent_path: "projects/<PROJECT_ID>/locations/<LOCATION_ID>/agents/<AGENT_ID>" # REQUIRED: Your Dialogflow CX agent path
+
+# Agent Configuration YAML Files
+agent_config:
+  original_file: "agent_config_params.yaml" # Default: Original agent configuration file
+  enriched_file: "enriched_agent_config.yaml" # Default: Output file for Gemini-enriched configuration
+
+# Gemini Enrichment Configuration
+gemini_enrichment:
+  enabled: true # Set to true to enable Gemini training phrase generation, false to skip
+  api_key: "YOUR_GEMINI_API_KEY_HERE" # REQUIRED if enabled: Your Gemini API Key
+  phrases_to_generate: 5 # Number of new training phrases to generate per intent

@@ -1,0 +1,4 @@
+PyYAML==6.0.1 # Or a compatible version
+google-generativeai==0.6.0 # Or a compatible version
+dfcx-scrapi==1.13.1 # Or a compatible version
+pandas==2.2.3

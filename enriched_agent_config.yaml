@@ -1,0 +1,162 @@
+entities:
+- display_name: fruit
+  kind: KIND_MAP
+  auto_expansion_mode: AUTO_EXPANSION_MODE_DEFAULT
+  entries:
+  - value: apple
+    synonyms:
+    - apple
+    - red apple
+    - green apple
+  - value: banana
+    synonyms:
+    - banana
+    - yellow banana
+  - value: orange
+    synonyms:
+    - orange
+    - mandarin
+    - citrus
+intents:
+- display_name: last transaction
+  description: Provides information about the user's last transaction.
+  training_phrases:
+  - What was my last transaction?
+  - Tell me about my last purchase
+  - Show me my last order
+  - Last transaction details
+  - Can you give me info on my last transaction?
+  - What was the last thing I bought?
+  - Can I see my most recent transaction?
+  - Details for my last payment.
+  - Tell me about my latest purchase.
+  - What was the final transaction?
+  priority: 200
+  enable_webhook: false
+  is_end_session: false
+- display_name: account balance
+  description: Inquires about the user's account balance.
+  training_phrases:
+  - What is my account balance?
+  - Show me my balance
+  - How much money do I have?
+  - Account balance
+  - Can you tell me my balance?
+  - How much do I have in my account?
+  - I need to check my balance.
+  - What's my current total?
+  - Could you provide my account balance?
+  - Enquire about my balance.
+  priority: 500
+  enable_webhook: true
+  is_end_session: false
+- display_name: transaction history
+  description: Retrieves the user's transaction history.
+  training_phrases:
+  - Show me my transaction history
+  - What are my recent transactions?
+  - List my transactions
+  - Transaction history
+  - Can you provide my transaction details?
+  - Can I see my past spending?
+  - Retrieve my transaction log.
+  - I'd like to view my financial activity.
+  - Where can I find a record of my payments?
+  - Show me a summary of my account transactions.
+  priority: 300
+  enable_webhook: true
+  is_end_session: false
+- display_name: check.order_status_specific
+  description: Checks the status of a specific order using an order ID.
+  parameters:
+  - id: order-id
+    entity_type_display_name: '@sys.any'
+    is_list: false
+  training_phrases:
+  - text_parts:
+    - text: 'What''s the status for order number '
+    - text: 12345-ABC
+      parameter_id: order-id
+    repeat_count: 1
+  - text_parts:
+    - text: 'Check status for '
+    - text: XYZ-789
+      parameter_id: order-id
+  - text_parts:
+    - text: 'I need an update on order '
+    - text: OrderNum999
+      parameter_id: order-id
+  - Tell me about my order [XYZ000]{@order-id}
+  - What's the current status for reference number ABC-1234?
+  - I'd like to check on order 987654.
+  - Could you please look up order 777-XYZ-000?
+  - 'Track my order #ORDER-ID-123.'
+  - Can you provide an update on order PQR-001?
+  priority: 5000
+  enable_webhook: false
+  is_end_session: false
+- display_name: specify.item_quantity
+  description: Specifies a quantity for an item.
+  parameters:
+  - id: item-name
+    entity_type_display_name: '@sys.any'
+    is_list: false
+  - id: number-of-items
+    entity_type_display_name: '@sys.number'
+    is_list: false
+  training_phrases:
+  - text_parts:
+    - text: 'I want '
+    - text: five
+      parameter_id: number-of-items
+    - text: ' of the '
+    - text: red apples
+      parameter_id: item-name
+  - text_parts:
+    - text: 'Can I get '
+    - text: '10'
+      parameter_id: number-of-items
+    - text: ' '
+    - text: bananas
+      parameter_id: item-name
+    - text: '?'
+  - text_parts:
+    - text: 'Set quantity to '
+    - text: '22'
+      parameter_id: number-of-items
+  - I'll take three coffees.
+  - Could you add a dozen eggs to my order?
+  - Make that twenty-five of the blue widgets.
+  - I need just one of those.
+  - I'd like six boxes of cereal, please.
+  priority: 500000
+  enable_webhook: false
+  is_end_session: false
+- display_name: order.fruit
+  description: User wants to order a fruit using a custom entity
+  parameters:
+  - id: fruit-name
+    entity_type_display_name: fruit
+    is_list: false
+  training_phrases:
+  - text_parts:
+    - text: 'I want to order '
+    - text: apple
+      parameter_id: fruit-name
+  - text_parts:
+    - text: 'Can I get '
+    - text: banana
+      parameter_id: fruit-name
+  - text_parts:
+    - text: 'Please send me some '
+    - text: orange
+      parameter_id: fruit-name
+    - text: ' in a box'
+  - I'd like to get some grapes.
+  - Could I order a few pears?
+  - Please deliver me an avocado.
+  - I need to buy two watermelons.
+  - Can you send me a lemon?
+  priority: 1200
+  enable_webhook: false
+  is_end_session: false
